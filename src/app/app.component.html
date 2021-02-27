@@ -1,0 +1,44 @@
+<nav class="navbar navbar-dark bg-primary text-center">
+  <a href="/" class="navbar-brand">
+    Registro 
+  </a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <ul class="list-group">
+        <li 
+        *ngFor="let empleado of empleadoArray"
+        class="list-group-item list-group-item-action"
+        (click)="openForEdit(empleados)"
+        [class.active]="empleados == empleadoSeleccionado">
+          <span class="badge badge-primary">{{empleado.id}}</span> {{empleado.name}} - {{empleado.phone}} -    {{empleado.address}}
+        </li>
+
+      </ul>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title">
+            Nuevo Registro
+            <div class="form-group mt-2">
+              <input type="text" [(ngModel)]= "empleadoSeleccionado.name" placeholder="Inserte Nombre" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="number" [(ngModel)]= "empleadoSeleccionado.phone" placeholder="Telefono" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" [(ngModel)]= "empleadoSeleccionado.address" placeholder="Direccion" class="form-control">
+            </div>
+            <button (click)="addOrEdit()" type="submit" class="btn btn-primary">submit</button>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      
+  </div>
+</div>
+
